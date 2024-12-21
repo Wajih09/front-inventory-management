@@ -1,0 +1,98 @@
+<div class="col mb-3">
+    <div class="col-md-12">
+        <div class="col-md-12 mb-3">
+            <h2>Nouvelle commande {{origin}}</h2>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMsg.length">
+            <div *ngFor="let msg of errorMsg">
+              <span> {{ msg }}</span>
+            </div>
+          </div>
+        <div class="row m-3 custom-border">
+            <div class="col-md-5 custom-border-right">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="codeCmd" placeholder="Code commande" [(ngModel)]="codeCommande">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Date commande">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="cltFrs" [(ngModel)]="selectedCltFrs">
+                            <option>Selectionner un {{origin}}</option>
+                            <option *ngFor="let cltFrs of cltFrsList" [ngValue]="cltFrs">{{cltFrs.nom}}&nbsp;{{cltFrs.prenom}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 custom-border-right">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+                        <div class="col-md-10">{{selectedCltFrs.nom}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+                        <div class="col-md-10">{{selectedCltFrs.prenom}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"><i class="fas fa-phone-alt blue-color"></i></div>
+                        <div class="col-md-10"> {{selectedCltFrs.numTel}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"><i class="fas fa-hourglass-half blue-color"></i></div>
+                        <div class="col-md-10 text-primary">EN PREPARATION</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 p-1 text-center mb-1 mt-1 ">
+                <img [src]="'assets/product.png'" width="100px" height="100px">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 p-3 custom-border">
+        <div class="row col-md-12">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Code article" [(ngModel)]="codeArticle" (input)="filtrerArticle()">
+            <div *ngIf="codeArticle.length && !articleNotYetSelected" class="autocomplete shadow p-3 mb-5 bg-white rounded">
+              <p class="p-1" *ngFor="let article of articlesList"
+              (click)="selectArticleClick(article)">
+                {{ article.codeArticle }}&nbsp; {{ article.designation }}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Quantite" [(ngModel)]="quantite">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="Prix unitaire" [(ngModel)]="searchedArticle.prixUnitaireTtc">
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-success" (click)="ajouterLigneCommande()"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+    </div>
+    <div class="row mt-2 p-3 custom-border" style="max-height: 300px;overflow-y: scroll">
+        <div class="col-md-12">
+          <app-detail-cmd *ngFor="let ligne of lignesCommande"
+          [ligneCommande]="ligne"
+          ></app-detail-cmd>
+        </div>
+      </div>
+    <div class="row mt-2 m-3 custom-border ">
+        <div class="col-md-12 text-right">
+            <h3>Total de la commande: {{ totalCommande }}</h3>
+        </div>
+    </div>
+    <div class="col-md-12 mt-2 text-right">
+        <button class="btn btn-danger mr-3" (click)="cancelClick()">
+            <i class="fas fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+        <button class="btn btn-primary" (click)="saveClick()">
+            <i class="fas fa-save"></i>&nbsp;
+            Enregitrer
+        </button>
+    </div>
+
+</div>

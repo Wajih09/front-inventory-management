@@ -1,0 +1,32 @@
+<div class="main-container">
+    <div class="row min-height-600 no-flex-wrap">
+        <div class="card col-md-2 mr-2">
+            <div class="inventory-title-container text-center mt-2 mb-3">
+                <h4 class="inventory-title">Inventory Management</h4>
+            </div>
+            
+            <div class="py-4">
+                <app-menu></app-menu>
+            </div>
+        </div>
+        <!-- <div class="col-md-10 pl-0 pr-0"> -->
+            <div class="col d-flex flex-column justify-content-between">
+                <div class="card min-height-80 mb-2">
+                    <app-header></app-header>
+                </div>
+                <div class="card mb-2" style="min-height: 780px;">
+                    <app-loader></app-loader>
+                    <router-outlet></router-outlet>
+                </div>
+                <div class="card min-height-80">
+                    <div>
+                        <h6>By Wajih Siai</h6>
+                    </div>
+                    <div>
+                        <small class="form-text text-muted" style="font-size: 0.8em;">Credit to &commat;alibou</small>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div>

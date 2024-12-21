@@ -1,0 +1,49 @@
+<div class="d-flex">
+    <div class="p-2 flex-fill">
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" *ngIf="isImporterVisible">
+        <i class="fas fa-cloud-upload-alt"></i>&nbsp;
+        Import
+      </button>
+    </div>
+    <div class="p-2 flex-fill">
+      <button type="button" class="btn btn-success" *ngIf="isExporterVisible">
+        <i class="fas fa-cloud-download-alt"></i>&nbsp;
+        Export
+      </button>
+    </div>
+    <div class="p-2 flex-fill">
+      <button type="button" class="btn btn-primary" (click)="bouttonNouveauClick()" *ngIf="isNouveauVisible" style="min-width: 105px;">
+        <i class="fas fa-plus"></i>&nbsp;
+        New
+      </button>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" autofocus>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Correction de stock</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Quantite">
+              </div>
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Correction positive</option>
+                  <option>Correction negative</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+            <button type="button" class="btn btn-primary"> <i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+          </div>
+        </div>
+      </div>    
+  </div>
+  

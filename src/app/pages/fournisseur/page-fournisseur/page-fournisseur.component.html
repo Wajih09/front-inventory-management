@@ -1,0 +1,21 @@
+<div class="col">
+    <div class="row m-3">
+      <div class="col-md-8 p-0">
+        <h1>Supplier List</h1>
+      </div>
+      <div class="col-md-4 text-right">
+        <app-bouton-action
+        (clickEvent)="nouveauFournisseur()"
+        ></app-bouton-action>
+      </div>
+    </div>
+    <div class="col m-3">
+      <app-detail-clt-frs *ngFor="let fournisseur of fournisseursList" [clientFournisseur]="fournisseur" [origin]="'fournisseur'" (suppressionResultCustomEvent)="handleSuppression($event)"></app-detail-clt-frs>
+    </div>
+    <div class="row mb-3">
+      <div class=" col-md-12 text-center">
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+  
+  </div>

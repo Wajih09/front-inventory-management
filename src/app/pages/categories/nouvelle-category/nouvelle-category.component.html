@@ -1,0 +1,43 @@
+<div class="col mb-3">
+    <div class="col-md-12 p-3">
+        <div class="col-md-12 mb-3">
+            <h2>Nouvelle categorie</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" *ngIf="errorsMsg.length > 0">
+                <div *ngFor="let msg of errorsMsg">
+                    <span>{{msg}}</span>
+                </div>
+            </div>
+            <form>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" class="form-control" name="codearticle" placeholder="Code categorie"
+                            [(ngModel)]="categoryDto.code">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" class="form-control" name="designation" placeholder="Description"
+                            [(ngModel)]="categoryDto.designation">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-12 text-right p-3">
+        <button class="btn btn-danger mr-3" (click)="cancelClick()">
+            <i class="fas fa-ban"></i>&nbsp;
+            Annuler
+        </button>
+        <button class="btn btn-primary" (click)="saveClick()">
+            <i class="fas fa-save"></i>&nbsp;
+            Enregitrer
+        </button>
+        <button class="btn btn-danger mr-3" (click)="deleteTest(idCategory)">
+            <i class="fas fa-ban"></i>&nbsp;
+            DeleteTest
+        </button>
+    </div>
+
+</div>

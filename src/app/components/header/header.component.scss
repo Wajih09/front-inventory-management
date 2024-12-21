@@ -1,0 +1,13 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.rounded-input-group .form-control {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.rounded-input-group .input-group-text {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}

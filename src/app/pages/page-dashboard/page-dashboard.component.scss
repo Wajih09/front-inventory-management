@@ -1,0 +1,28 @@
+.main-container{
+    margin: 50px;
+}
+.min-height-600{
+    min-height: 600px;
+}
+.no-flex-wrap{
+    flex-wrap: inherit !important;
+}
+
+.inventory-title-container {
+    border: none;
+}
+
+.inventory-title {
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    color: #333; /* Choose a suitable color */
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #e0e0e0; /* Adds a subtle underline */
+}
+
+.inventory-content {
+    padding: 2rem 1rem;
+    background-color: #f8f9fa; /* Adds a soft background color */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adds a gentle shadow */
+}
